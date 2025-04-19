@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, BookOpen } from 'lucide-react';
+import { ArrowLeft, BookOpen, Lock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ageGroups = [
@@ -24,7 +24,7 @@ const ageGroups = [
       "Digital safety",
       "Understanding consent"
     ],
-    image: "https://t4.ftcdn.net/jpg/03/15/87/35/360_F_315873518_3DpsHxRea2S9zncyypJE2DMiluLGLPVF.jpg", // Updated image URL
+    image: "https://t4.ftcdn.net/jpg/03/15/87/35/360_F_315873518_3DpsHxRea2S9zncyypJE2DMiluLGLPVF.jpg",
     link: "/sex-education/13-15"
   },
   {
@@ -37,7 +37,8 @@ const ageGroups = [
       "Making informed decisions"
     ],
     image: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800",
-    link: "/sex-education/16-plus"
+    link: "/premium",
+    isPremium: true
   }
 ];
 
@@ -92,9 +93,14 @@ function SexEducation() {
                 </ul>
                 <Link
                   to={group.link}
-                  className="block w-full py-2 rounded-full font-semibold text-center bg-[#c5aded] text-[#6a1b9a] hover:bg-[#e61f93] hover:text-white transition-colors duration-300"
+                  className={`block w-full py-2 rounded-full font-semibold text-center transition-colors duration-300 ${
+                    group.isPremium 
+                      ? 'bg-[#e61f93] text-white hover:bg-[#d81b84] flex items-center justify-center gap-2'
+                      : 'bg-[#c5aded] text-[#6a1b9a] hover:bg-[#e61f93] hover:text-white'
+                  }`}
                 >
-                  Access Content
+                  {group.isPremium && <Lock className="w-4 h-4" />}
+                  {group.isPremium ? 'Unlock Premium Content' : 'Access Content'}
                 </Link>
               </div>
             </div>

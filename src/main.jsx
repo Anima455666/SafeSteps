@@ -1,4 +1,3 @@
-// src/main.jsx
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -8,6 +7,8 @@ import MaternityTracking from './pages/MaternityTracking.jsx';
 import SexEducation from './pages/SexEducation.jsx';
 import SexEducationContent from './pages/SexEducationContent.jsx';
 import PremiumPage from './pages/PremiumPage.jsx';
+import Login from './pages/Login.jsx';
+import Payment from './pages/Payment.jsx';
 import './index.css';
 
 createRoot(document.getElementById('root')).render(
@@ -20,6 +21,8 @@ createRoot(document.getElementById('root')).render(
         <Route path="/sex-education" element={<SexEducation />} />
         <Route path="/sex-education/:ageGroup" element={<SexEducationContent />} />
         <Route path="/premium" element={<PremiumPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/payment" element={<Payment />} />
       </Routes>
     </Router>
   </StrictMode>
